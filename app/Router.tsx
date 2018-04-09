@@ -2,7 +2,7 @@ import { ClassicRouter, MatchedRoute, PageRouteByFrame, PageRouteWithParent } fr
 
 export default class Router extends ClassicRouter {
     onInit() {
-        this.addRoute(MatchedRoute({ path: "/docs/:url" },
+        this.addRoute(MatchedRoute({ path: "/docs/:doc" },
             PageRouteWithParent({ parentFrame: "layout" }, PageRouteWithParent({ parentFrame: "docs" },
                 PageRouteByFrame({
                     frameName: "docpage",
@@ -14,7 +14,7 @@ export default class Router extends ClassicRouter {
             PageRouteWithParent({ parentFrame: "layout" }, PageRouteWithParent({ parentFrame: "docs" },
                 PageRouteByFrame({
                     frameName: "docpage",
-                    params: () => ({ url: "newebio/neweb/master/docs/GettingStarted.md" }),
+                    params: () => ({ doc: "GettingStarted" }),
                 })))));
     }
 }

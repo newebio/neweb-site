@@ -13,6 +13,7 @@ export default class DocsView extends React.Component<IViewProps<IParams, IData>
                     backgroundColor: "#fff5ea",
                     width: "220px",
                     margin: "30px 20px",
+                    paddingBottom: "10px",
                 }}>
                     <div className="left-menu-header">
                         Basic
@@ -25,15 +26,24 @@ export default class DocsView extends React.Component<IViewProps<IParams, IData>
                         Routing
                     </div>
                     <ul>
-                        <li><Link href="/docs">Getting started</Link></li>
+                        <li><Link href="/docs/routes">Types of routes</Link></li>
                         <li><Link href="/docs/concept">Concept</Link></li>
                     </ul>
                     <div className="left-menu-header">
-                        Data transfering
+                        Frames
                     </div>
                     <ul>
-                        <li><Link href="/docs">Getting started</Link></li>
-                        <li><Link href="/docs/concept">Concept</Link></li>
+                        <li><Link href="/docs/frames">Overview</Link></li>
+                        <li><Link href="/docs/view">View</Link></li>
+                        <li><Link href="/docs/controller">Controller</Link></li>
+                    </ul>
+                    <div className="left-menu-header">
+                        Modules
+                    </div>
+                    <ul>
+                        <li><Link href="/docs/frames">Overview</Link></li>
+                        <li><Link href="/docs/view">View</Link></li>
+                        <li><Link href="/docs/controller">Controller</Link></li>
                     </ul>
                 </div>
             </div>
