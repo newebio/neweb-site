@@ -16,7 +16,7 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
                 }}>
                     <Link
                         href="/"
-                        style={{}}><img src="/logo_white.png" style={{ height: "50px" }} /></Link>
+                        style={{}}><img src="/logo_white.png" style={{ marginTop: "3px", height: "50px" }} /></Link>
                     <Link href="/" style={{
                         textDecoration: "none",
                         height: "50px",

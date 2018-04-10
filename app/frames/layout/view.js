@@ -16,7 +16,7 @@ class LayoutView extends React.Component {
                         gridGap: "5px",
                     } },
                     React.createElement(neweb_1.Link, { href: "/", style: {} },
-                        React.createElement("img", { src: "/logo_white.png", style: { height: "50px" } })),
+                        React.createElement("img", { src: "/logo_white.png", style: { marginTop: "3px", height: "50px" } })),
                     React.createElement(neweb_1.Link, { href: "/", style: {
                             textDecoration: "none",
                             height: "50px",
