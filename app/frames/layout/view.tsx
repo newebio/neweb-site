@@ -5,7 +5,9 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
     render() {
         return (<div>
             <header style={{
-                height: "60px", backgroundColor: "#2C529C",
+                height: "60px",
+                backgroundColor: "#0B766E",
+                /*backgroundColor: "#2C529C",*/
             }}>
                 <div style={{
                     paddingLeft: "30px",

@@ -6,7 +6,8 @@ class LayoutView extends React.Component {
     render() {
         return (React.createElement("div", null,
             React.createElement("header", { style: {
-                    height: "60px", backgroundColor: "#2C529C",
+                    height: "60px",
+                    backgroundColor: "#0B766E",
                 } },
                 React.createElement("div", { style: {
                         paddingLeft: "30px",
