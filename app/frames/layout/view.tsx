@@ -6,19 +6,19 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
         return (<div>
             <header style={{
                 height: "60px",
-                backgroundColor: "#0B766E",
-                /*backgroundColor: "#2C529C",*/
+                /*backgroundColor: "#0B766E",*/
+                backgroundColor: "#2C529C",
             }}>
                 <div style={{
-                    paddingLeft: "30px",
+                    paddingLeft: "45px",
                     maxWidth: "1000px", margin: "auto", display: "grid",
                     alignItems: "center",
                     gridTemplateColumns: "60px 60px auto",
-                    gridGap: "5px",
+                    gridGap: "0px",
                 }}>
                     <Link
                         href="/"
-                        style={{}}><img src="/logo_white.png" style={{ marginTop: "3px", height: "50px" }} /></Link>
+                        style={{}}><img src="/logo_white2.png" style={{ marginTop: "8px", height: "40px" }} /></Link>
                     <Link href="/" style={{
                         textDecoration: "none",
                         height: "50px",

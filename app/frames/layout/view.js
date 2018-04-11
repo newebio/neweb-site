@@ -7,17 +7,18 @@ class LayoutView extends React.Component {
         return (React.createElement("div", null,
             React.createElement("header", { style: {
                     height: "60px",
-                    backgroundColor: "#0B766E",
+                    /*backgroundColor: "#0B766E",*/
+                    backgroundColor: "#2C529C",
                 } },
                 React.createElement("div", { style: {
-                        paddingLeft: "30px",
+                        paddingLeft: "45px",
                         maxWidth: "1000px", margin: "auto", display: "grid",
                         alignItems: "center",
                         gridTemplateColumns: "60px 60px auto",
-                        gridGap: "5px",
+                        gridGap: "0px",
                     } },
                     React.createElement(neweb_1.Link, { href: "/", style: {} },
-                        React.createElement("img", { src: "/logo_white.png", style: { marginTop: "3px", height: "50px" } })),
+                        React.createElement("img", { src: "/logo_white2.png", style: { marginTop: "8px", height: "40px" } })),
                     React.createElement(neweb_1.Link, { href: "/", style: {
                             textDecoration: "none",
                             height: "50px",
