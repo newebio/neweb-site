@@ -18,7 +18,7 @@ code{
 .left-menu-header{
     background-color: #2C529C;
     /*background-color: #0B766E;*/
-    color:#f9f7f7;
+    color:white;
     padding:10px;
 }
 .left-menu ul{
@@ -35,5 +35,5 @@ code{
     
 }
 .white{
-    color:#f9f7f7;
+    color: white;
 }

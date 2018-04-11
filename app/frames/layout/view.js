@@ -18,7 +18,7 @@ class LayoutView extends React.Component {
                         gridGap: "0px",
                     } },
                     React.createElement(neweb_1.Link, { href: "/", style: {} },
-                        React.createElement("img", { src: "/logo_white2.png", style: { marginTop: "8px", height: "40px" } })),
+                        React.createElement("img", { src: "/logo_white3.png", style: { marginTop: "8px", height: "40px" } })),
                     React.createElement(neweb_1.Link, { className: "white", href: "/", style: {
                             textDecoration: "none",
                             height: "50px",
@@ -26,7 +26,7 @@ class LayoutView extends React.Component {
                             alignItems: "center",
                             justifyContent: "center",
                             fontSize: "25px",
-                            color: "#efebeb",
+                            color: "white",
                         } }, "Neweb"),
                     React.createElement("div", { style: {
                             width: "100%", display: "grid",

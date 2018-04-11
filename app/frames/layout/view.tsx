@@ -18,7 +18,7 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
                 }}>
                     <Link
                         href="/"
-                        style={{}}><img src="/logo_white2.png" style={{ marginTop: "8px", height: "40px" }} /></Link>
+                        style={{}}><img src="/logo_white3.png" style={{ marginTop: "8px", height: "40px" }} /></Link>
                     <Link className="white" href="/" style={{
                         textDecoration: "none",
                         height: "50px",
@@ -26,7 +26,7 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
                         alignItems: "center",
                         justifyContent: "center",
                         fontSize: "25px",
-                        color: "#efebeb",
+                        color: "white",
                     }}>Neweb</Link>
                     <div style={{
                         width: "100%", display: "grid",
