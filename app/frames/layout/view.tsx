@@ -19,13 +19,14 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
                     <Link
                         href="/"
                         style={{}}><img src="/logo_white2.png" style={{ marginTop: "8px", height: "40px" }} /></Link>
-                    <Link href="/" style={{
+                    <Link className="white" href="/" style={{
                         textDecoration: "none",
                         height: "50px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        color: "white", fontSize: "25px",
+                        fontSize: "25px",
+                        color: "#efebeb",
                     }}>Neweb</Link>
                     <div style={{
                         width: "100%", display: "grid",
@@ -39,9 +40,9 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
                             gridTemplateColumns: "auto auto auto",
                         }}>
                             <div>
-                                <Link style={{ color: "white" }} href="/docs">Docs</Link></div>
-                            <div><Link style={{ color: "white" }} href="/api">API</Link></div>
-                            <div><Link style={{ color: "white" }} href="https://github.com/newebio/neweb"
+                                <Link className="white" href="/docs">Docs</Link></div>
+                            <div><Link className="white" href="/api">API</Link></div>
+                            <div><Link className="white" href="https://github.com/newebio/neweb"
                                 target="_blank">Github</Link></div>
                         </div>
                     </div>
