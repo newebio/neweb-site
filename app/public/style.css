@@ -15,25 +15,3 @@ code{
     display:block;
     border-radius: 2px;
 }
-.left-menu-header{
-    background-color: #2C529C;
-    /*background-color: #0B766E;*/
-    color:white;
-    padding:10px;
-}
-.left-menu ul{
-    list-style: none;
-    padding-left:20px;
-}
-.left-menu ul li{
-    display:block;
-    margin: 5px 0;
-}
-.left-menu ul li a{
-    color: brown;
-    font-size: 14px;
-    
-}
-.white{
-    color: white;
-}
