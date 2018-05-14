@@ -1,8 +1,7 @@
 import { IViewProps, Link, Styled } from "neweb";
 import React = require("react");
-import { IData, IParams } from "./controller";
 
-export default class LayoutView extends React.Component<IViewProps<IParams, IData>, {}> {
+export default class LayoutView extends React.Component<IViewProps<{}, {}>, {}> {
     render() {
         return (
             <Styled styles={{ ".white": { color: "white" } }}>
@@ -11,10 +10,13 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
                         height: "60px",
                         /*backgroundColor: "#0B766E",*/
                         backgroundColor: "#2C529C",
+                        position: "fixed",
+                        width: "100%",
                     }}>
                         <div style={{
                             paddingLeft: "45px",
-                            maxWidth: "1000px", margin: "auto", display: "grid",
+                            maxWidth: "1000px",
+                            margin: "auto", display: "grid",
                             alignItems: "center",
                             gridTemplateColumns: "60px 60px auto",
                             gridGap: "0px",
@@ -52,7 +54,27 @@ export default class LayoutView extends React.Component<IViewProps<IParams, IDat
                             </div>
                         </div>
                     </header>
-                    <div style={{ maxWidth: "1000px", margin: "auto" }}>{this.props.children}</div>
+                    <div style={{
+                        maxWidth: "1000px",
+                        margin: "auto",
+                        paddingTop: "60px",
+                    }}>{this.props.children}</div>
+                    <div style={{
+                        marginTop: "50px", height: "250px",
+                        position: "relative",
+                        boxSizing: "border-box",
+                        border: "none",
+                        fontWeight: 400,
+                        color: "#202020",
+                        fontSize: "15px",
+                        lineHeight: "24px",
+                        background: "#808080",
+                        boxShadow: "inset 0 10px 10px -5px rgba(0,0,0,0.2)",
+                        paddingTop: "2em",
+                        paddingBottom: "2em",
+                    }}>
+
+                    </div>
                 </div></Styled>);
     }
 }

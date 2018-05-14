@@ -10,10 +10,13 @@ class LayoutView extends React.Component {
                         height: "60px",
                         /*backgroundColor: "#0B766E",*/
                         backgroundColor: "#2C529C",
+                        position: "fixed",
+                        width: "100%",
                     } },
                     React.createElement("div", { style: {
                             paddingLeft: "45px",
-                            maxWidth: "1000px", margin: "auto", display: "grid",
+                            maxWidth: "1000px",
+                            margin: "auto", display: "grid",
                             alignItems: "center",
                             gridTemplateColumns: "60px 60px auto",
                             gridGap: "0px",
@@ -46,7 +49,25 @@ class LayoutView extends React.Component {
                                     React.createElement(neweb_1.Link, { className: "white", href: "/api" }, "API")),
                                 React.createElement("div", null,
                                     React.createElement(neweb_1.Link, { className: "white", href: "https://github.com/newebio/neweb", target: "_blank" }, "Github")))))),
-                React.createElement("div", { style: { maxWidth: "1000px", margin: "auto" } }, this.props.children))));
+                React.createElement("div", { style: {
+                        maxWidth: "1000px",
+                        margin: "auto",
+                        paddingTop: "60px",
+                    } }, this.props.children),
+                React.createElement("div", { style: {
+                        marginTop: "50px", height: "250px",
+                        position: "relative",
+                        boxSizing: "border-box",
+                        border: "none",
+                        fontWeight: 400,
+                        color: "#202020",
+                        fontSize: "15px",
+                        lineHeight: "24px",
+                        background: "#808080",
+                        boxShadow: "inset 0 10px 10px -5px rgba(0,0,0,0.2)",
+                        paddingTop: "2em",
+                        paddingBottom: "2em",
+                    } }))));
     }
 }
 exports.default = LayoutView;

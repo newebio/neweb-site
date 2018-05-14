@@ -1,9 +1,40 @@
 import { IViewProps, Link, Styled } from "neweb";
 import React = require("react");
 import { backColor } from "../../styles";
-import { IData, IParams } from "./controller";
 
-export default class DocsView extends React.Component<IViewProps<IParams, IData>, {}> {
+const menu = [{
+    header: "Basic",
+    items: [{
+        title: "Getting started",
+        link: "/docs",
+    }, {
+        title: "Concept",
+        link: "/docs/concept",
+    }, {
+        title: "Styles",
+        link: "/docs/styles",
+    }],
+}, {
+    header: "Routing",
+    items: [{
+        title: "Types of routes",
+        link: "/docs/routes",
+    }],
+}, {
+    header: "Frames",
+    items: [{
+        title: "Overview",
+        link: "/docs/frames",
+    }, {
+        title: "View",
+        link: "/docs/view",
+    }, {
+        title: "Controller",
+        link: "/docs/controller",
+    }],
+}];
+
+export default class DocsView extends React.Component<IViewProps<{}, {}>, {}> {
     render() {
         return (<div style={{
             display: "grid",
@@ -30,43 +61,19 @@ export default class DocsView extends React.Component<IViewProps<IParams, IData>
                             "color": "brown",
                             "font-size": "14px",
                         },
-                        ">div": {
+                        ">div>div": {
                             "background-color": backColor,
                             "color": "white",
                             "padding": "10px",
                         },
-                    }}>
-                        <div className="header">
-                            Basic
-                        </div>
-                        <ul>
-                            <li><Link href="/docs">Getting started</Link></li>
-                            <li><Link href="/docs/concept">Concept</Link></li>
-                            <li><Link href="/docs/styles">Styles</Link></li>
-                        </ul>
-                        <div>
-                            Routing
-                        </div>
-                        <ul>
-                            <li><Link href="/docs/routes">Types of routes</Link></li>
-                            <li><Link href="/docs/concept">Concept</Link></li>
-                        </ul>
-                        <div>
-                            Frames
-                        </div>
-                        <ul>
-                            <li><Link href="/docs/frames">Overview</Link></li>
-                            <li><Link href="/docs/view">View</Link></li>
-                            <li><Link href="/docs/controller">Controller</Link></li>
-                        </ul>
-                        <div>
-                            Modules
-                        </div>
-                        <ul>
-                            <li><Link href="/docs/frames">Overview</Link></li>
-                            <li><Link href="/docs/view">View</Link></li>
-                            <li><Link href="/docs/controller">Controller</Link></li>
-                        </ul></Styled>
+                    }}>{menu.map(({ header, items }, key2) => {
+                        const headerBlock = <div>{header}</div>;
+                        const itemsBlock = <ul>{items.map((item, key) => {
+                            return <li key={key}><Link href={item.link}>{item.title}</Link></li>;
+                        })}</ul>;
+                        return <div key={key2}>{headerBlock}{itemsBlock}</div>;
+                    })}
+                    </Styled>
                 </div>
             </div>
             <div>{this.props.children}</div>

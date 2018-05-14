@@ -13,14 +13,12 @@ const neweb_1 = require("neweb");
 const showdown = require("showdown");
 const util_1 = require("util");
 class DocpageController extends neweb_1.FrameController {
-    getInitialData() {
+    onInit() {
         return __awaiter(this, void 0, void 0, function* () {
             const converter = new showdown.Converter();
             const text = (yield util_1.promisify(fs_1.readFile)(__dirname + "/../../../docs/" + this.config.params.doc + ".md")).toString();
             const body = converter.makeHtml(text);
-            return {
-                body,
-            };
+            this.data$.next({ body });
         });
     }
 }

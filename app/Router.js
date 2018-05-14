@@ -6,6 +6,9 @@ class Router extends neweb_1.ClassicRouter {
         this.addRoute(neweb_1.MatchedRoute({ path: "/docs/:doc" }, neweb_1.PageRouteWithParent({ parentFrame: "layout" }, neweb_1.PageRouteWithParent({ parentFrame: "docs" }, neweb_1.PageRouteByFrame({
             frameName: "docpage",
         })))));
+        this.addRoute(neweb_1.MatchedRoute({ path: "/api/:doc" }, neweb_1.PageRouteWithParent({ parentFrame: "layout" }, neweb_1.PageRouteWithParent({ parentFrame: "api" }, neweb_1.PageRouteByFrame({
+            frameName: "docpage",
+        })))));
         this.addRoute(neweb_1.MatchedRoute({ path: "/" }, neweb_1.PageRouteWithParent({ parentFrame: "layout" }, neweb_1.PageRouteByFrame({
             frameName: "home",
         }))));

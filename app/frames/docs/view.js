@@ -3,6 +3,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const neweb_1 = require("neweb");
 const React = require("react");
 const styles_1 = require("../../styles");
+const menu = [{
+        header: "Basic",
+        items: [{
+                title: "Getting started",
+                link: "/docs",
+            }, {
+                title: "Concept",
+                link: "/docs/concept",
+            }, {
+                title: "Styles",
+                link: "/docs/styles",
+            }],
+    }, {
+        header: "Routing",
+        items: [{
+                title: "Types of routes",
+                link: "/docs/routes",
+            }],
+    }, {
+        header: "Frames",
+        items: [{
+                title: "Overview",
+                link: "/docs/frames",
+            }, {
+                title: "View",
+                link: "/docs/view",
+            }, {
+                title: "Controller",
+                link: "/docs/controller",
+            }],
+    }];
 class DocsView extends React.Component {
     render() {
         return (React.createElement("div", { style: {
@@ -30,42 +61,21 @@ class DocsView extends React.Component {
                                 "color": "brown",
                                 "font-size": "14px",
                             },
-                            ">div": {
+                            ">div>div": {
                                 "background-color": styles_1.backColor,
                                 "color": "white",
                                 "padding": "10px",
                             },
-                        } },
-                        React.createElement("div", { className: "header" }, "Basic"),
-                        React.createElement("ul", null,
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs" }, "Getting started")),
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/concept" }, "Concept")),
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/styles" }, "Styles"))),
-                        React.createElement("div", null, "Routing"),
-                        React.createElement("ul", null,
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/routes" }, "Types of routes")),
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/concept" }, "Concept"))),
-                        React.createElement("div", null, "Frames"),
-                        React.createElement("ul", null,
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/frames" }, "Overview")),
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/view" }, "View")),
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/controller" }, "Controller"))),
-                        React.createElement("div", null, "Modules"),
-                        React.createElement("ul", null,
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/frames" }, "Overview")),
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/view" }, "View")),
-                            React.createElement("li", null,
-                                React.createElement(neweb_1.Link, { href: "/docs/controller" }, "Controller")))))),
+                        } }, menu.map(({ header, items }, key2) => {
+                        const headerBlock = React.createElement("div", null, header);
+                        const itemsBlock = React.createElement("ul", null, items.map((item, key) => {
+                            return React.createElement("li", { key: key },
+                                React.createElement(neweb_1.Link, { href: item.link }, item.title));
+                        }));
+                        return React.createElement("div", { key: key2 },
+                            headerBlock,
+                            itemsBlock);
+                    })))),
             React.createElement("div", null, this.props.children)));
     }
 }

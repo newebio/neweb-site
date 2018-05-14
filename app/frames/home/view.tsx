@@ -1,8 +1,7 @@
 import { IViewProps, Styled } from "neweb";
 import React = require("react");
 
-import { IData, IParams } from "./controller";
-export default class HomeView extends React.Component<IViewProps<IParams, IData>, {}> {
+export default class HomeView extends React.Component<IViewProps<{}, {}>, {}> {
     render() {
         return <Styled styles={{
             h1: {
