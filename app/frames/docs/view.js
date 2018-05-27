@@ -1,8 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const neweb_1 = require("neweb");
-const React = require("react");
-const styles_1 = require("../../styles");
 const menu = [{
         header: "Basic",
         items: [{
@@ -22,6 +20,12 @@ const menu = [{
                 link: "/docs/routes",
             }],
     }, {
+        header: "Components",
+        items: [{
+                title: "Types of routes",
+                link: "/docs/routes",
+            }],
+    }, {
         header: "Frames",
         items: [{
                 title: "Overview",
@@ -34,49 +38,49 @@ const menu = [{
                 link: "/docs/controller",
             }],
     }];
-class DocsView extends React.Component {
-    render() {
-        return (React.createElement("div", { style: {
-                display: "grid",
-                gridTemplateColumns: "250px auto",
-                gridGap: "70px",
-            } },
-            React.createElement("div", null,
-                React.createElement("div", { className: "left-menu", style: {
-                        backgroundColor: "#fff5ea",
-                        width: "220px",
-                        margin: "30px 20px",
-                        paddingBottom: "10px",
-                    } },
-                    React.createElement(neweb_1.Styled, { styles: {
-                            "ul": {
-                                "list-style": "none",
-                                "padding-left": "20px",
-                            },
-                            "ul li": {
-                                display: "block",
-                                margin: "5px 0",
-                            },
-                            "ul li a": {
-                                "color": "brown",
-                                "font-size": "14px",
-                            },
-                            ">div>div": {
-                                "background-color": styles_1.backColor,
-                                "color": "white",
-                                "padding": "10px",
-                            },
-                        } }, menu.map(({ header, items }, key2) => {
-                        const headerBlock = React.createElement("div", null, header);
-                        const itemsBlock = React.createElement("ul", null, items.map((item, key) => {
-                            return React.createElement("li", { key: key },
-                                React.createElement(neweb_1.Link, { href: item.link }, item.title));
-                        }));
-                        return React.createElement("div", { key: key2 },
-                            headerBlock,
-                            itemsBlock);
-                    })))),
-            React.createElement("div", null, this.props.children)));
+class MenuBlockItem extends neweb_1.ElementComponent {
+    beforeMount() {
+        this.addElement("link", new neweb_1.Link({
+            innerHTML: this.props.title,
+            url: this.props.link,
+        }));
+    }
+    getTemplate() {
+        return `<li><a name="link"></a></li>`;
+    }
+}
+class MenuItem extends neweb_1.ElementComponent {
+    beforeMount() {
+        this.addElement("header", new neweb_1.TextNode({
+            value: this.props.header,
+        }));
+        this.addElement("menuBlock", new neweb_1.List({
+            items: this.props.items,
+            renderItem: (item) => new MenuBlockItem({
+                title: item.title,
+                link: item.link,
+            }),
+        }));
+    }
+    getTemplate() {
+        return `<div><div><template name="header"></template></div><ul name="menuBlock"></ul></div>`;
+    }
+}
+class DocsView extends neweb_1.ElementComponent {
+    beforeMount() {
+        this.addElement("menu", new neweb_1.List({
+            items: menu,
+            renderItem: (item) => new MenuItem({
+                items: item.items,
+                header: item.header,
+            }),
+        }));
+        this.addElement("children", new neweb_1.DynamicComponent({
+            component: this.props.children.children,
+        }));
+    }
+    getTemplate() {
+        return require(`./template.html`);
     }
 }
 exports.default = DocsView;

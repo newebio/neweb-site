@@ -1,7 +1,4 @@
-import { IViewProps, Link, Styled } from "neweb";
-import React = require("react");
-import { backColor } from "../../styles";
-
+import { DynamicComponent, ElementComponent, Link, List, TextNode } from "neweb";
 const menu = [{
     header: "Basic",
     items: [{
@@ -21,6 +18,12 @@ const menu = [{
         link: "/docs/routes",
     }],
 }, {
+    header: "Components",
+    items: [{
+        title: "Types of routes",
+        link: "/docs/routes",
+    }],
+}, {
     header: "Frames",
     items: [{
         title: "Overview",
@@ -33,50 +36,55 @@ const menu = [{
         link: "/docs/controller",
     }],
 }];
-
-export default class DocsView extends React.Component<IViewProps<{}, {}>, {}> {
-    render() {
-        return (<div style={{
-            display: "grid",
-            gridTemplateColumns: "250px auto",
-            gridGap: "70px",
-        }}>
-            <div>
-                <div className="left-menu" style={{
-                    backgroundColor: "#fff5ea",
-                    width: "220px",
-                    margin: "30px 20px",
-                    paddingBottom: "10px",
-                }}>
-                    <Styled styles={{
-                        "ul": {
-                            "list-style": "none",
-                            "padding-left": "20px",
-                        },
-                        "ul li": {
-                            display: "block",
-                            margin: "5px 0",
-                        },
-                        "ul li a": {
-                            "color": "brown",
-                            "font-size": "14px",
-                        },
-                        ">div>div": {
-                            "background-color": backColor,
-                            "color": "white",
-                            "padding": "10px",
-                        },
-                    }}>{menu.map(({ header, items }, key2) => {
-                        const headerBlock = <div>{header}</div>;
-                        const itemsBlock = <ul>{items.map((item, key) => {
-                            return <li key={key}><Link href={item.link}>{item.title}</Link></li>;
-                        })}</ul>;
-                        return <div key={key2}>{headerBlock}{itemsBlock}</div>;
-                    })}
-                    </Styled>
-                </div>
-            </div>
-            <div>{this.props.children}</div>
-        </div>);
+class MenuBlockItem extends ElementComponent<{
+    title: string;
+    link: string;
+}> {
+    beforeMount() {
+        this.addElement("link", new Link({
+            innerHTML: this.props.title,
+            url: this.props.link,
+        }));
+    }
+    getTemplate() {
+        return `<li><a name="link"></a></li>`;
     }
 }
+class MenuItem extends ElementComponent<{
+    header: string;
+    items: Array<{ title: string; link: string; }>;
+}> {
+    beforeMount() {
+        this.addElement("header", new TextNode({
+            value: this.props.header,
+        }));
+        this.addElement("menuBlock", new List({
+            items: this.props.items,
+            renderItem: (item) => new MenuBlockItem({
+                title: item.title,
+                link: item.link,
+            }),
+        }));
+    }
+    getTemplate() {
+        return `<div><div><template name="header"></template></div><ul name="menuBlock"></ul></div>`;
+    }
+}
+class DocsView extends ElementComponent<any> {
+    beforeMount() {
+        this.addElement("menu", new List({
+            items: menu,
+            renderItem: (item) => new MenuItem({
+                items: item.items,
+                header: item.header,
+            }),
+        }));
+        this.addElement("children", new DynamicComponent({
+            component: this.props.children.children,
+        }));
+    }
+    getTemplate() {
+        return require(`./template.html`);
+    }
+}
+export default DocsView;
