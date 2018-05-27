@@ -3615,9 +3615,9 @@ neweb-server@^0.11.0:
     uid-safe "^2.1.5"
     with-error "^0.1.1"
 
-neweb@^0.13.2:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/neweb/-/neweb-0.13.2.tgz#ad3639817ab35c6715a8b3c249a495d58201c1d2"
+neweb@^0.13.3:
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/neweb/-/neweb-0.13.3.tgz#4378809d9b410657723c7cf373fbbaa5c37317d2"
   dependencies:
     "@types/debug" "^0.0.30"
     "@types/express" "^4.11.1"

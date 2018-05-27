@@ -30,7 +30,7 @@
   "dependencies": {
     "@types/node-fetch": "^1.6.8",
     "@types/showdown": "^1.7.3",
-    "neweb": "^0.13.2",
+    "neweb": "^0.13.3",
     "node-fetch": "^2.1.2",
     "path": "^0.12.7",
     "rxjs": "^6.2.0",
